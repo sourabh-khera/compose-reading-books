@@ -23,4 +23,11 @@ services:
     - './myvol1:/app/data'  
     env_file:
      - b.env 
+  #   links:
+  #     - mongo
+  # mongo:
+  #   container_name: mongo
+  #   image: mongo
+  #   ports: 
+  #    - "27017:27017"      
 
