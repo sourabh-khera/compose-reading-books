@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  web-app:
+    build: './graphql-reading-books-client/'  
+    container_name: 'graphql_client_container'
+    labels:
+      description: "my react app" 
+    volumes:
+    - './myvol1:/app/data'       
+    ports:
+    - "3000:3000"
+    tty: true
+    
+  server:
+    build: './graphql-reading-books-server/'  
+    ports:
+    - "4000:4000"
+    container_name: 'graphql_server_container'
+    labels:
+      description: "my graphql app" 
+    volumes:
+    - './myvol1:/app/data'  
+    env_file:
+     - b.env 
+

@@ -1,0 +1,19 @@
+FROM node:9
+
+MAINTAINER <sourabh.khera@tothenew.com> 
+
+WORKDIR /app/
+
+COPY package.json /app/
+
+COPY . .
+
+RUN npm i
+
+# CMD ["npm", "start"]
+
+# ENV VAR='dev'
+
+RUN ["chmod", "+x", "/app/entrypoint.sh"]
+
+ENTRYPOINT ["sh", "/app/entrypoint.sh"];
